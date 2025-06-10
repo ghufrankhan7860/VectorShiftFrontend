@@ -161,11 +161,11 @@ export const NodeTextarea = ({ label, value, onChange, ...props }) => {
     // Use mock data if no real inputs
     const inputsToUse = availableInputs.length > 0 ? availableInputs : [];
 
-    // Debug logs
-    console.log("Available inputs:", availableInputs);
-    console.log("Using inputs:", inputsToUse);
-    console.log("Show popup:", showPopup);
-    console.log("Popup position:", popupPosition);
+    // // Debug logs
+    // console.log("Available inputs:", availableInputs);
+    // console.log("Using inputs:", inputsToUse);
+    // console.log("Show popup:", showPopup);
+    // console.log("Popup position:", popupPosition);
 
     const hasDoubleBraces = (text) => {
         return text.includes("{{");
@@ -231,18 +231,18 @@ export const NodeTextarea = ({ label, value, onChange, ...props }) => {
 
         onChange(e);
 
-        console.log("=== HANDLE CHANGE ===");
-        console.log("New value:", newVal);
-        console.log("Cursor position:", cursorPos);
-        console.log("Has double braces:", hasDoubleBraces(newVal));
-        console.log("Is inside open braces:", isInsideOpenBraces(newVal, cursorPos));
+        // console.log("=== HANDLE CHANGE ===");
+        // console.log("New value:", newVal);
+        // console.log("Cursor position:", cursorPos);
+        // console.log("Has double braces:", hasDoubleBraces(newVal));
+        // console.log("Is inside open braces:", isInsideOpenBraces(newVal, cursorPos));
 
         if (hasDoubleBraces(newVal) && isInsideOpenBraces(newVal, cursorPos)) {
             const currentVar = getCurrentVariableName(newVal, cursorPos);
             const filteredInputs = filterInputNodes(inputsToUse, currentVar);
 
-            console.log("Current variable:", currentVar);
-            console.log("Filtered inputs:", filteredInputs);
+            // console.log("Current variable:", currentVar);
+            // console.log("Filtered inputs:", filteredInputs);
 
             setCurrentVariableName(currentVar);
             setSelectedIndex(0);
@@ -253,11 +253,11 @@ export const NodeTextarea = ({ label, value, onChange, ...props }) => {
                 left: 50
             });
             setShowPopup(true);
-            console.log("POPUP SHOULD BE VISIBLE NOW!");
+            // console.log("POPUP SHOULD BE VISIBLE NOW!");
 
         } else {
             setShowPopup(false);
-            console.log("Hiding popup");
+            // console.log("Hiding popup");
         }
 
         setTimeout(adjustHeight, 0);
