@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // // submit.js
 
 // export const SubmitButton = () => {
@@ -9,9 +10,14 @@
 // }
 
 import { useStore } from "./store";
+=======
+>>>>>>> 989058e15c2bf6b0eee347fc9c708e3531e29204
 
 export const SubmitButton = () => {
+    const handleOnClick = ()=>{
+        try{
 
+<<<<<<< HEAD
     const { nodes, edges } = useStore((state) => ({
         nodes: state.nodes,
         edges: state.edges,
@@ -38,6 +44,15 @@ export const SubmitButton = () => {
 
             <button type="button" onClick={handleOnClick}>Submit</button>
 
+=======
+        }catch(err){
+            console.log()
+        }
+    }
+    return (
+        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+            <button type="button" onClick={handleOnClick}>Submit</button>
+>>>>>>> 989058e15c2bf6b0eee347fc9c708e3531e29204
         </div>
 
     );
