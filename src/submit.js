@@ -3,10 +3,10 @@ import { useStore } from "./store";
 import { v4 as uuidv4 } from "uuid";
 
 export const SubmitButton = () => {
-  const { nodes, edges } = useStore((state) => ({
-    nodes: state.nodes,
-    edges: state.edges,
-  }));
+    const { nodes, edges } = useStore((state) => ({
+        nodes: state.nodes,
+        edges: state.edges,
+    }));
 
   const handleOnClick = async () => {
     try {
