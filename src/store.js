@@ -72,4 +72,44 @@ export const useStore = create((set, get) => ({
         console.log("NodeIDs:", get().nodeIDs);
     },
 
+    // handleNewNodes for inputVariableNodes Fn
+    // store.js
+    addVariableConnection: (nodeId, variableName, inputNodeId) => {
+        set((state) => ({
+            nodes: state.nodes.map(node => {
+                if (node.id === nodeId) {
+                    const existingConnections = node.data?.variableConnections || [];
+                    const newConnection = {
+                        variableName,
+                        inputNodeId,
+                        handleId: `${nodeId}-${variableName}-input`
+                    };
+                    return {
+                        ...node,
+                        data: {
+                            ...node.data,
+                            variableConnections: [
+                                ...existingConnections.filter(c => c.variableName !== variableName),
+                                newConnection
+                            ]
+                        }
+                    };
+                }
+                return node;
+            })
+        }));
+    },
+    createVariableEdge: (sourceNodeId, targetNodeId, targetHandleId) => {
+        const newEdge = {
+            id: `${sourceNodeId}-${targetNodeId}-${Date.now()}`,
+            source: sourceNodeId,
+            target: targetNodeId,
+            targetHandle: targetHandleId,
+            type: "smoothstep",
+            animated: true,
+        };
+        set((state) => ({
+            edges: [...state.edges, newEdge]
+        }));
+    },
 }));
