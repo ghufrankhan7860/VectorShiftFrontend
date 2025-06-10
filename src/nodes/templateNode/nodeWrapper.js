@@ -11,13 +11,13 @@ export const NodeWrapper = ({
 }) => {
     return (
         <div
-            className={`border border-black p-2 rounded-lg shadow-md bg-white ${className}`}
+            className={`border border-indigo-200 p-2 rounded-lg shadow-md bg-white ${className}`}
             style={{ width, height }}
             {...props}
         >
             {title && (
-                <div className="mb-2 bg-indigo-200">
-                    <span className="font-medium">{title}</span>
+                <div className="mb-2 bg-indigo-200 p-0.5 rounded text-center">
+                    <span className="text-sm text-indigo-800">{title}</span>
                 </div>
             )}
             <div className="flex-1 ">{children}</div>
